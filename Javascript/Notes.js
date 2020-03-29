@@ -1,5 +1,3 @@
-let us = "begin..."
-
 
 /*
 What Is This?
