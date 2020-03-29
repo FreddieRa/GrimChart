@@ -5,8 +5,8 @@ for(let item of ["./Javascript/Damage.js", "./Javascript/Each.js", "./Javascript
 }
 
 function preload() {
-	ex = loadStrings("../Default.txt")
-	img = loadImage("../Images/Grungy-Paper-Texture-3.jpg")
+	ex = loadStrings("Default.txt")
+	img = loadImage("Images/Grungy-Paper-Texture-3.jpg")
 }
 
 function setup() {
