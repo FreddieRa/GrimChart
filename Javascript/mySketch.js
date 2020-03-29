@@ -1,3 +1,9 @@
+for(let item of ["./Damage.js", "./Each.js", "./Functions.js", "./IO.js", "./Node.js", "./Notes.js", "./Operators.js", "./Result.js", "./Roll.js", "./SaveAndLoad.js", "./Stats.js", "./Total.js"]) {
+	let imported = document.createElement('script');
+	imported.src = item;
+	document.head.appendChild(imported);
+}
+
 function preload() {
 	ex = loadStrings("../Default.txt")
 	img = loadImage("../Images/Grungy-Paper-Texture-3.jpg")
