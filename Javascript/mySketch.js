@@ -1,6 +1,6 @@
 function preload() {
-	ex = loadStrings("Default.txt")
-	img = loadImage("Grungy-Paper-Texture-3.jpg")
+	ex = loadStrings("../Default.txt")
+	img = loadImage("../Images/Grungy-Paper-Texture-3.jpg")
 }
 
 function setup() {
