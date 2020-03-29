@@ -1,4 +1,4 @@
-for(let item of ["./Damage.js", "./Each.js", "./Functions.js", "./IO.js", "./Node.js", "./Notes.js", "./Operators.js", "./Result.js", "./Roll.js", "./SaveAndLoad.js", "./Stats.js", "./Total.js"]) {
+for(let item of ["./Javascript/Damage.js", "./Javascript/Each.js", "./Javascript/Functions.js", "./Javascript/IO.js", "./Javascript/Node.js", "./Javascript/Notes.js", "./Javascript/Operators.js", "./Javascript/Result.js", "./Javascript/Roll.js", "./Javascript/SaveAndLoad.js", "./Javascript/Stats.js", "./Javascript/Total.js"]) {
 	let imported = document.createElement('script');
 	imported.src = item;
 	document.head.appendChild(imported);
