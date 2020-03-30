@@ -155,6 +155,7 @@ hr {
 	font-size: 16px;
 	border-radius: 0;
 }
+
 .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
 	color: #fff;
 	background-color: #121d1f;
@@ -167,8 +168,21 @@ hr {
 	border-color: #121d1f;
 	border-radius: 0;
 }
+.btn-xl {
+	color: #fff;
+	background-color: #121d1f;
+	padding: 10px 20px;
+	border-color: #121d1f;
+	border-radius: 0;
+	width: 60%;
+}
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active {
+	color: #fff;
+	background-color: #7bc3d1;
+	border-color: #7bc3d1;
+}
+.btn-xl:hover, .btn-xl:focus, .btn-xl.focus, .btn-xl:active, .btn-xl.active {
 	color: #fff;
 	background-color: #7bc3d1;
 	border-color: #7bc3d1;
