@@ -78,6 +78,16 @@ hr {
 	margin-bottom: 30px;
 	border: 0;
 }
+
+.button-container {
+	width: 100%;
+	text-align: center;
+}
+.dividerr{
+    width:5px;
+    display:inline-block;
+}
+
 /* Navigation */
 #nav {
 	z-index: 9999;
@@ -211,6 +221,12 @@ hr {
 #how .how-text {
 	margin-left: 10px;
 }
+#how h2 {
+	color: #fff;
+}
+#how hr {
+	background: rgba(255,255,255,0.3);
+}
 #how img {
 	border-radius: 50%;
 	width: 200px;
@@ -221,6 +237,12 @@ hr {
 	color: #fff;
 	margin-top: 20px;
 	margin-bottom: 30px;
+}
+#how .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active {
+	color: #fff;
+	background-color: #3c4749;
+	border-color: #3c4749;
+	display: inline-block;
 }
 
 
@@ -405,16 +427,16 @@ ol.type li a:hover {
 /* Achivements Section */
 #achievements {
 	padding: 100px 0;
-	background: #7bc3d1;
+	background: #ffffff;
 }
 #achievements h2 {
-	color: #fff;
+	color: #7bc3d1;
 }
 #achievements hr {
-	background: rgba(255,255,255,0.3);
+	background: rgba(255,255,255,1);
 }
 .achievement-box h4 {
-	color: #fff;
+	color: #7bc3d1;
 	font-size: 20px;
 	font-weight: 400;
 	margin-left: 5px;

@@ -167,8 +167,11 @@ function Calculate() {
 
 }
 
-
-
+function SaveOutput() {
+	let name = prompt("Filename:")
+	name = name.replace(/\s/g, "_")
+	saveCanvas(name, "jpg")
+}
 
 
 

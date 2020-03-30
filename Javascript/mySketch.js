@@ -75,6 +75,7 @@ function setup() {
 	unchanged = true
 
 	mode = 1;
+	showMode = true;
 	modes = {
 		1: "Add node",
 		2: "Add TRUE connection",
@@ -88,7 +89,7 @@ function setup() {
 	
 	// All of the GUI to replace keypresses
 	loc = createElement('p');
-	loc.position(10, 100);
+	loc.position(10, 10);
 	mainGUI = new dat.GUI({
 		autoPlace: true,
 		width: 280,
@@ -98,8 +99,9 @@ function setup() {
 	for(var key in modes){
     flipped[modes[key]] = key;
   }
-	mainGUI.add(this, 'mode', flipped);
+	mainGUI.add(this, 'mode', flipped).listen();
 	mainGUI.add(this, 'Calculate');
+	//mainGUI.add(this, 'SaveOutput');
 	loc.child(mainGUI.domElement)
 	//print(img)
 }
@@ -120,16 +122,6 @@ function draw() {
 	if(mode == 4 && keyIsDown(DOWN_ARROW)){scaleFactor -= 0.01}
 	if (keyIsDown(219)) {cur -= 0.5; cur = max(cur, 0)}
 	if (keyIsDown(221)) {cur += 0.5; cur = min(cur, 10)}
-
-
-	{
-		noStroke();
-		fill(0);
-		textSize(25);
-		text(modes[mode], 140, 40)
-		textSize(25);
-	} // Modes
-	
 
 
 	{
