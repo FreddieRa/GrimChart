@@ -85,7 +85,7 @@ function setup() {
 	
 	// All of the GUI to replace keypresses
 	loc = createElement('p');
-	loc.position(10, 100);
+	loc.position(100, 100);
 	mainGUI = new dat.GUI({
 		autoPlace: true,
 		width: 280,
