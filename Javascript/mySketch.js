@@ -11,6 +11,7 @@ function preload() {
 
 function setup() {
 	canvas = createCanvas(windowWidth, windowHeight);
+	canvas.style('display', 'block');
 	background(255);
 	rectMode(CENTER);
 	textAlign(CENTER, CENTER);
@@ -85,7 +86,7 @@ function setup() {
 	
 	// All of the GUI to replace keypresses
 	loc = createElement('p');
-	loc.position(100, 100);
+	loc.position(10, 100);
 	mainGUI = new dat.GUI({
 		autoPlace: true,
 		width: 280,
@@ -101,9 +102,13 @@ function setup() {
 	//print(img)
 }
 
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+  }
+
 function draw() {
-	background(0);
-	// image(img, 0, 0, width, height)
+	background(255);
+	image(img, 0, 0, width, height)
 	
 	hovered = -1;
 	
