@@ -7,6 +7,7 @@ for(let item of ["./Javascript/Damage.js", "./Javascript/Each.js", "./Javascript
 function preload() {
 	ex = loadStrings("Default.txt")
 	img = loadImage("Images/Grungy-Paper-Texture-3.jpg")
+	logo = loadImage("Images/GrimChartLogoSmall.png")
 }
 
 function setup() {
@@ -110,6 +111,7 @@ function windowResized() {
 function draw() {
 	background(255);
 	image(img, 0, 0, width, height)
+	image(logo, 20, height-logo.height-20)
 	
 	hovered = -1;
 	
