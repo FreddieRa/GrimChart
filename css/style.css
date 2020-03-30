@@ -167,6 +167,7 @@ hr {
 	border-color: #121d1f;
 	border-radius: 0;
 }
+
 .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active {
 	color: #fff;
 	background-color: #7bc3d1;
@@ -183,7 +184,7 @@ hr {
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(../Images/GrimChartLogo.png) no-repeat center/auto 400px !important;
+	background: url(../Images/GrimChartLogo.png) no-repeat center/auto 150% !important;
 	background-color: #ffffff;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -453,6 +454,14 @@ ol.type li a:hover {
 	margin-left: 5px;
 }
 .achievement-box span.count {
+	font-size: 52px;
+	font-weight: 600;
+	display: block;
+	color: #121d1f;
+	padding: 0;
+	margin: 0;
+}
+.achievement-box span.count-text {
 	font-size: 52px;
 	font-weight: 600;
 	display: block;
