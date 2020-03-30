@@ -102,7 +102,7 @@ function setup() {
 }
 
 function draw() {
-	background(255);
+	background(0);
 	image(img, 0, 0, width, height)
 	
 	hovered = -1;
