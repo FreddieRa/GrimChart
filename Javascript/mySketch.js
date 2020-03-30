@@ -12,6 +12,7 @@ function preload() {
 function setup() {
 	canvas = createCanvas(windowWidth, windowHeight);
 	canvas.style('display', 'block');
+	canvas.position(0, 0)
 	background(255);
 	rectMode(CENTER);
 	textAlign(CENTER, CENTER);
