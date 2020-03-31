@@ -6,11 +6,8 @@ function saveTree() {
 	}
 	let string = `[${JSON.stringify(newNodes)}, ${JSON.stringify(inputs)}, ${JSON.stringify(outputs)}, ${str(id)}, ${scaleFactor}, ${startID}]`
 	let json = {"nodes": newNodes, "inputs": inputs, "outputs": outputs, "id": id, "scaleFactor": scaleFactor, "startID": startID}
-	if (startID != -1) {
-		name = nodes[startID].name
-	} else if (0 in nodes) {
-		name = nodes[0].name
-	} else {
+	name = Object.values(nodes)[0].name
+	if(name == null) {
 		name = prompt("Filename:")
 	}
 	name = name.replace(/\s/g, "_")
