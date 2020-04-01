@@ -107,11 +107,11 @@ function setup() {
     flipped[modes[key]] = key;
   }
 	mainGUI.add(this, 'mode', flipped).listen();
-	mainGUI.add(this, 'Calculate');
+	//mainGUI.add(this, 'Calculate');
 	//mainGUI.add(this, 'SaveOutput');
 	loc.child(mainGUI.domElement)
 	loc2 = createElement('p');
-	loc2.position(10, 200);
+	loc2.position(width*850/1080, 100);
 	//print(img)
 }
 

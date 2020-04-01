@@ -154,7 +154,7 @@ function bevRect(x, y, wi, he, be, highlight = false) {
 }
 
 
-function Calculate() {
+function calculate() {
 	for (let node of Object.values(nodes)) {
 		node.calculated = false;
 	}
@@ -164,7 +164,6 @@ function Calculate() {
 		}
 	}
 	unchanged = true
-
 }
 
 function SaveOutput() {
@@ -173,11 +172,25 @@ function SaveOutput() {
 	saveCanvas(name, "jpg")
 }
 
+function help() {
+	help = !help
+}
+
 function addButtons() {
-	let temp = new Button(0, 0, 0, "Calculate", Calculate)
-	temp.x = 10 + temp.width/2
-	temp.y = 200
-	nodes[-2] = temp
+	let test = new Node(-1, 0,0,"test")
+	let x = 10 + test.width/2
+	let y = 100
+	let buttons = {"Calculate": calculate, "Help": help}
+	let bid = -2
+	for (let [key, value] of Object.entries(buttons)) {
+		let temp = new Button(bid, 0, 0, key, value)
+		temp.x = x
+		temp.y = y
+		nodes[bid] = temp
+		y += test.height + 10
+		bid -= 1
+	}
+	print("done")
 }
 
 

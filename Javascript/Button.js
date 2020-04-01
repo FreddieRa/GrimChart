@@ -8,4 +8,7 @@ function Button(id, x, y, name, func) {
 		let string = `${this.name}`
 		return string
 	}
+
+	this.move = function() {
+	}
 }

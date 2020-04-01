@@ -8,7 +8,7 @@ function keyPressed() {
 	}
 	
 	if (key == "h") {
-		help = !help
+		help()
 	}
 
 	// Saving tree
@@ -31,15 +31,7 @@ function keyPressed() {
 	}
 
 	if (key == "0") {
-		for (let node of Object.values(nodes)) {
-			node.calculated = false;
-		}
-		for (let node of Object.values(nodes)) {
-			if (node.type == "RESULT") {
-				node.calculate()
-			}
-		}
-		unchanged = true
+		calculate();
 	}
 
 	// Searching and highlighting nodes
@@ -245,7 +237,7 @@ function mouseDragged() {
 			if (keyIsDown(SHIFT)) {
 				endCoords = [mouseX, mouseY]
 			} else {
-				if (hovered != -1) {
+				if (hovered != -1 && nodes[hovered].type != "BUTTON") {
 					hoveredNode = nodes[hovered]
 					hoveredNode.x = mouseX;
 					hoveredNode.y = mouseY;
