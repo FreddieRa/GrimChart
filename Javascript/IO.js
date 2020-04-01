@@ -148,10 +148,16 @@ function mousePressed() {
 						gui = new dat.GUI();
 						// let name = gui.add(node, 'name').listen();
 						for (let key of toCopy[node.type]) {
-							if(key == "damageDice") {
-								
-							} else {
-								gui.add(node, key)
+							print(key)
+							switch (key) {
+								case "damageDice":
+									gui.add(node, key, {"None": 0, "d3": 3, "d6": 6});
+									break;
+								case "operator":
+									gui.add(node, key, ["<", "<=", "=", ">=", ">"]);
+									break;
+								default:
+									gui.add(node, key)
 							}
 						}
 					}

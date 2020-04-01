@@ -5,7 +5,8 @@ for(let item of ["./Javascript/Damage.js", "./Javascript/Each.js", "./Javascript
 }
 
 function preload() {
-	ex = loadStrings("Default.txt")
+	ex = loadStrings("examples/Default.txt")
+	ex2 = loadStrings("examples/Magnus's_Smite.txt")
 	img = loadImage("Images/Grungy-Paper-Texture-3.jpg")
 	logo = loadImage("Images/GrimChartLogoSmall.png")
 }
@@ -29,6 +30,10 @@ function setup() {
 	example = createButton("Load Example")
 	example.position(width*850/1080, 60)
 	example.mousePressed(function(){loadTree(ex[0], true)})
+
+	example2 = createButton("Load Example 2")
+	example2.position(width*850/1080, 80)
+	example2.mousePressed(function(){loadTree(ex2[0], true)})
 	
 	// A dictionary of nodes where their ID is the key
 	nodes = {};

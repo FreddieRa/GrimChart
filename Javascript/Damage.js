@@ -1,7 +1,7 @@
 function Damage(id, x, y, name, damageNumber, damageDice = 0, mortal = false) {
 	Node.call(this, id, x, y, name)
 	this.damageNumber = damageNumber;
-	this.damageDice = damageDice;
+	this.damageDice = damageDice ? damageDice : 0;
 	this.mortal = mortal;
 	this.average = 0;
 	this.type = "DAMAGE";
