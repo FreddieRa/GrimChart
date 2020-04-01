@@ -108,6 +108,8 @@ function setup() {
 	mainGUI.add(this, 'Calculate');
 	//mainGUI.add(this, 'SaveOutput');
 	loc.child(mainGUI.domElement)
+	loc2 = createElement('p');
+	loc2.position(10, 200);
 	//print(img)
 }
 

@@ -145,11 +145,15 @@ function mousePressed() {
 							gui.destroy()
 						}
 						let node = nodes[hovered]
-						gui = new dat.GUI();
+						gui = new dat.GUI({autoPlace: true});
 						// let name = gui.add(node, 'name').listen();
 						for (let key of toCopy[node.type]) {
 							print(key)
 							switch (key) {
+								case "number": 
+								case "target":
+									gui.add(node, key).min(1).step(1);
+									break;
 								case "dice":
 									gui.add(node, key, {"d3": 3, "d6": 6});
 									break;
@@ -164,6 +168,7 @@ function mousePressed() {
 							}
 						}
 					}
+					loc2.child(gui.domElement)
 					break;
 				}
 
