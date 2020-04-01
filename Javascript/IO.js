@@ -151,7 +151,7 @@ function mousePressed() {
 							print(key)
 							switch (key) {
 								case "damageDice":
-									gui.add(node, key, {"None": 0, "d3": 3, "d6": 6});
+									gui.add(node, key, {"None": "", "d3": 3, "d6": 6});
 									break;
 								case "operator":
 									gui.add(node, key, ["<", "<=", "=", ">=", ">"]);

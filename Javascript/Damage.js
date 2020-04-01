@@ -1,4 +1,4 @@
-function Damage(id, x, y, name, damageNumber, damageDice = 0, mortal = false) {
+function Damage(id, x, y, name, damageNumber, damageDice = "", mortal = false) {
 	Node.call(this, id, x, y, name)
 	this.damageNumber = damageNumber;
 	this.damageDice = damageDice ? damageDice : 0;
