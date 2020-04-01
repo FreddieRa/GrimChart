@@ -150,6 +150,9 @@ function mousePressed() {
 						for (let key of toCopy[node.type]) {
 							print(key)
 							switch (key) {
+								case "dice":
+									gui.add(node, key, {"d3": 3, "d6": 6});
+									break;
 								case "damageDice":
 									gui.add(node, key, {"None": "", "d3": 3, "d6": 6});
 									break;
