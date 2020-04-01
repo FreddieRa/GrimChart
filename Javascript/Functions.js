@@ -173,8 +173,12 @@ function SaveOutput() {
 	saveCanvas(name, "jpg")
 }
 
-
-
+function addButtons() {
+	let temp = new Button(0, 0, 0, "Calculate", Calculate)
+	temp.x = 10 + temp.width/2
+	temp.y = 200
+	nodes[-2] = temp
+}
 
 
 

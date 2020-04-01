@@ -1,4 +1,4 @@
-for(let item of ["./Javascript/Damage.js", "./Javascript/Each.js", "./Javascript/Functions.js", "./Javascript/IO.js", "./Javascript/Node.js", "./Javascript/Notes.js", "./Javascript/Operators.js", "./Javascript/Result.js", "./Javascript/Roll.js", "./Javascript/SaveAndLoad.js", "./Javascript/Stats.js", "./Javascript/Total.js"]) {
+for(let item of ["./Javascript/Button.js","./Javascript/Damage.js", "./Javascript/Each.js", "./Javascript/Functions.js", "./Javascript/IO.js", "./Javascript/Node.js", "./Javascript/Notes.js", "./Javascript/Operators.js", "./Javascript/Result.js", "./Javascript/Roll.js", "./Javascript/SaveAndLoad.js", "./Javascript/Stats.js", "./Javascript/Total.js"]) {
 	let imported = document.createElement('script');
 	imported.src = item;
 	document.head.appendChild(imported);
@@ -39,6 +39,8 @@ function setup() {
 	nodes = {};
 	inputs = {};
 	outputs = {};
+
+	addButtons();
 	
 	route = [];
 	
@@ -185,9 +187,10 @@ function draw() {
 	if(help) {
 		bevRect(width/2, height/2, width*3/4, height*4/5, cur)
 		textAlign(LEFT)
-		textSize(12)
+		textSize(12*width/1920)
 		noStroke()
 		fill(255)
+		//rectMode(CENTER)
 		text(notes, width/2,height*1/6, width*3/4-50, height*3/4)
 		text(notes2, width*5/6,height*1/6, width*3/4-50, height*3/4)
 		textAlign(CENTER)

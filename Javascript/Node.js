@@ -17,7 +17,7 @@ function Node(id, x, y, name) {
 	this.textSize = 18;
 	this.hover = false;
 	this.sw = 1;
-	this.colour = "#FFFFFF"
+	this.colour = "#CCCCCC"
 	this.costColour = "#000000"
 	this.colours = {
 		"NODE": "#CCCCCC",
@@ -26,6 +26,7 @@ function Node(id, x, y, name) {
 		"TOTAL": "#CCCCCC",
 		"EACH": "#CCCCCC",
 		"RESULT": "#CCCCCC",
+		"BUTTON": "#CCCCCC",
 		"start": "#CCCCCC",
 		"hovered": "#13c1d1",
 		"from": "#c21328"
@@ -52,7 +53,6 @@ function Node(id, x, y, name) {
 		textSize(this.textSize * scaleFactor)
 		this.width = (textWidth(this.getString()) + 15)
 		this.height = (textAscent() + 15)
-
 		if (this.hover || route.includes(str(this.id)) || selected.includes(str(this.id))) {
 			this.sw = 2
 			this.colour = this.colours.hovered
@@ -61,7 +61,7 @@ function Node(id, x, y, name) {
 			this.colour = this.colours.from
 		} else {
 			this.sw = 1
-			this.colour = this.start ?  this.colours.start : this.colours[this.type]
+			this.colour = this.start ? this.colours.start : "#CCCCCC"
 		}
 	}
 
