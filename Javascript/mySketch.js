@@ -114,6 +114,8 @@ function draw() {
 	background(255);
 	image(img, 0, 0, width, height)
 	image(logo, 20, height-logo.height-20)
+	fill(0)
+	rect(0+150,0+50,300,150)
 	
 	hovered = -1;
 	

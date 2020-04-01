@@ -63,7 +63,8 @@ function keyPressed() {
 function mousePressed() {
 	startCoord = []
 	let h = gui ? height * 10 : 250
-	if (!intersect(width*850/1080, 40, 250, h) && !intersect(0, 100, 350, 400)) {
+	
+	if (!intersect(width*850/1080, 40, 250, h) && !intersect(0, 10, 300, 100)) {
 		switch (mode) {
 			case 1: // Add node
 				if (!intersect(width - 150, 0, 250, h)) {
