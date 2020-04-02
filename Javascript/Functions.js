@@ -172,29 +172,35 @@ function SaveOutput() {
 	saveCanvas(name, "jpg")
 }
 
-function help() {
+function helpToggle() {
 	help = !help
 }
 
 function addButtons() {
-	let test = new Node(-1, 0,0,"test")
-	let x = 10 + test.width/2
+	let x = 20 
 	let y = 100
-	let buttons = {"Calculate": calculate, "Help": help}
 	let bid = -2
 	for (let [key, value] of Object.entries(buttons)) {
 		let temp = new Button(bid, 0, 0, key, value)
-		temp.x = x
+		temp.calcSize();
+		temp.x = x + temp.width/2
 		temp.y = y
 		nodes[bid] = temp
-		y += test.height + 10
+		y += temp.height + 10
 		bid -= 1
 	}
 	print("done")
 }
 
+function mySelectEvent() {
+	let item = sel.value();
+	mode = flipped[item]
+	//sel.style('color', '#ff0000');
+}
 
-
+function showSelect() {
+	// sel.elt.style.color = sel.style('color', '#ffffff');
+}
 
 
 

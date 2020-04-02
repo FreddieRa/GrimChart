@@ -8,7 +8,8 @@ function keyPressed() {
 	}
 	
 	if (key == "h") {
-		help()
+		helpToggle()
+		return false
 	}
 
 	// Saving tree

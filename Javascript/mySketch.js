@@ -40,6 +40,9 @@ function setup() {
 	inputs = {};
 	outputs = {};
 
+
+	// Adding calc and help buttons
+	buttons = {"Mode:                ": showSelect, "Calculate": calculate, "Help": helpToggle}
 	addButtons();
 	
 	route = [];
@@ -95,6 +98,10 @@ function setup() {
 	
 	
 	// All of the GUI to replace keypresses
+	sel = createSelect();
+	sel.position(10, 10)
+	sel.changed(mySelectEvent)
+	/*
 	loc = createElement('p');
 	loc.position(10, 10);
 	mainGUI = new dat.GUI({
@@ -102,14 +109,25 @@ function setup() {
 		width: 280,
 		height: 250
 	});
-	let flipped =  {}
+	*/
+	flipped =  {}
 	for(var key in modes){
-    flipped[modes[key]] = key;
-  }
-	mainGUI.add(this, 'mode', flipped).listen();
+		sel.option(modes[key])
+    	flipped[modes[key]] = key;
+	}
+	//sel.style("color", "#ff0000");
+	sel.style("font-family", "Georgia");
+	sel.style("font-size", 20+"px");
+	sel.style("background-color", "rgba(255, 1, 1, 0)");
+	sel.style("color", "rgba(255, 255, 255)");
+	sel.style("border: none")	
+	sel.style("-webkit-appearance: none");
+	sel.style("-moz-appearance: none");
+
+	//mainGUI.add(this, 'mode', flipped).listen();
 	//mainGUI.add(this, 'Calculate');
 	//mainGUI.add(this, 'SaveOutput');
-	loc.child(mainGUI.domElement)
+	//loc.child(mainGUI.domElement)
 	loc2 = createElement('p');
 	loc2.position(width*850/1080, 100);
 	//print(img)
@@ -185,6 +203,7 @@ function draw() {
 	// filter(INVERT)
 	
 	if(help) {
+		for(button of selectAll('button')) {button.hide()}
 		bevRect(width/2, height/2, width*3/4, height*4/5, cur)
 		textAlign(LEFT)
 		textSize(12*width/1920)
@@ -194,5 +213,7 @@ function draw() {
 		text(notes, width/2,height*1/6, width*3/4-50, height*3/4)
 		text(notes2, width*5/6,height*1/6, width*3/4-50, height*3/4)
 		textAlign(CENTER)
+	} else {
+		for(button of selectAll('button')) {button.show()}
 	}
 }

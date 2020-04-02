@@ -36,6 +36,13 @@ function Node(id, x, y, name) {
 		return this.name
 	}
 
+	this.calcSize = function() {
+		// Determine size of box to contain text
+		textSize(this.textSize * scaleFactor)
+		this.width = (textWidth(this.getString()) + 15)
+		this.height = (textAscent() + 15)
+	}
+
 	this.update = function() {
 		if (mode == 4) {
 			// Scale point toward or away from mouse
@@ -49,10 +56,8 @@ function Node(id, x, y, name) {
 			}
 		}
 		
-		// Determine size of box to contain text
-		textSize(this.textSize * scaleFactor)
-		this.width = (textWidth(this.getString()) + 15)
-		this.height = (textAscent() + 15)
+		this.calcSize();
+
 		if (this.hover || route.includes(str(this.id)) || selected.includes(str(this.id))) {
 			this.sw = 2
 			this.colour = this.colours.hovered
