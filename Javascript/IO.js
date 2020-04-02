@@ -143,11 +143,12 @@ function mousePressed() {
 					if (hovered != -1) {
 						if (gui) {
 							gui.domElement.parentNode.removeChild(gui.domElement)
-							if(gui.node = nodes[hovered]){gui = false; return false}
+							if(gui.node == nodes[hovered].id){gui = false; return false}
 						}
 						let node = nodes[hovered]
 						gui = new dat.GUI({autoPlace: false});
-						gui.node = node
+						gui.node = node.id
+
 						loc2.child(gui.domElement)
 						loc2.position(node.x + 10, node.y);
 						
