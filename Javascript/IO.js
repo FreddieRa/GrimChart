@@ -143,11 +143,13 @@ function mousePressed() {
 					if (hovered != -1) {
 						if (gui) {
 							gui.domElement.parentNode.removeChild(gui.domElement)
+							if(gui.node = nodes[hovered]){gui = false; return false}
 						}
 						let node = nodes[hovered]
 						gui = new dat.GUI({autoPlace: false});
+						gui.node = node
 						loc2.child(gui.domElement)
-						loc2.position(width-20-gui.width, 130);
+						loc2.position(node.x + 10, node.y);
 						
 						// let name = gui.add(node, 'name').listen();
 						for (let key of toCopy[node.type]) {
