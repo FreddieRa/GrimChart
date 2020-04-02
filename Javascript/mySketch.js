@@ -39,7 +39,6 @@ function setup() {
 	
 	}
 	addButtons();
-	chooseFile = nodes["Choose File"]
 	
 	//chooseFile = new Button("chooseFile", width*880/1080, 40, "Choose File", function(){})
 	//chooseFile.calcSize()
@@ -137,16 +136,17 @@ function setup() {
 	//mainGUI.add(this, 'SaveOutput');
 	//loc.child(mainGUI.domElement)
 	loc2 = createElement('p');
-	loc2.position(width*850/1080, 100);
 	//print(img)
 }
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
-	chooseFile.x = width*880/1080
+	for(button of Object.keys(buttons2)){
+		let node = nodes[button]
+		node.x = width - 20 - int(node.width/2)
+	}
 	browse.position(chooseFile.x-chooseFile.width/2, chooseFile.y-chooseFile.height/2)
-	loadExample.x = width*880/1080
-	loadExample2.x = width*880/1080
+
   }
 
 function draw() {
