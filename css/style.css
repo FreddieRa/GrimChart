@@ -79,6 +79,12 @@ hr {
 	border: 0;
 }
 
+select:focus{
+    border-color: gray;
+    outline:none;
+}
+
+
 .button-container {
 	width: 100%;
 	text-align: center;

@@ -59,4 +59,7 @@ function loadTree(file, isText = false) {
 	id = loaded[3];
 	scaleFactor = loaded[4];
 	addButtons();
+	nodes["chooseFile"] = chooseFile
+	updateMode();
+	print("YES")
 }

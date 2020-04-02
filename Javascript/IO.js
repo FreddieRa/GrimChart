@@ -3,12 +3,14 @@ function keyPressed() {
 	let h = gui ? height * 10 : 250
 	if (Object.keys(modes).includes(key) && !intersect(width*850/1080, 40, 250, h)) {
 		mode = int(key)
+		updateMode(modes[mode]);
 		from = -1;
 		to = -1;
 	}
 	
 	if (key == "h") {
-		help()
+		helpToggle()
+		return false
 	}
 
 	// Saving tree
@@ -26,7 +28,9 @@ function keyPressed() {
 	if (key == "8") {
 		for (let [key, value] of Object.entries(nodes)) {
 			// The value here determines how coarse the grid is
-			value.snapTo(20 * scaleFactor);
+			if(value.type != "BUTTON") {
+				value.snapTo(20 * scaleFactor);
+			}
 		}
 	}
 

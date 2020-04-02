@@ -21,31 +21,49 @@ function setup() {
 	ts = 22;
 	textSize(25);
 	textFont('Georgia');
-
-	// File browser button
-	browse = createFileInput(loadTree)
-	browse.position(width*850/1080, 40)
-	
-	// Example loading button
-	example = createButton("Load Example")
-	example.position(width*850/1080, 60)
-	example.mousePressed(function(){loadTree(ex[0], true)})
-
-	example2 = createButton("Load Example 2")
-	example2.position(width*850/1080, 80)
-	example2.mousePressed(function(){loadTree(ex2[0], true)})
 	
 	// A dictionary of nodes where their ID is the key
 	nodes = {};
 	inputs = {};
 	outputs = {};
 
-	addButtons();
-	
-	route = [];
-	
 	// The scale that everything is drawn at
 	scaleFactor = 1;
+
+	// Adding calc and help buttons
+	buttons = {"Mode": showSelect, "Calculate": calculate, "Help": helpToggle}
+	buttons2 = {
+		"Load Example 1": function(){loadTree(ex[0], true)}, 
+		"Load Example 2": function(){loadTree(ex2[0], true)},
+		"Choose File": function(){}
+	
+	}
+	addButtons();
+	chooseFile = nodes["Choose File"]
+	
+	//chooseFile = new Button("chooseFile", width*880/1080, 40, "Choose File", function(){})
+	//chooseFile.calcSize()
+	//nodes["chooseFile"] = chooseFile
+
+		// File browser button
+	browse = createFileInput(loadTree)
+	browse.position(chooseFile.x-chooseFile.width/2, chooseFile.y-chooseFile.height/2)
+	browse.size(chooseFile.width, chooseFile.height)
+	browse.style("background-color", "rgba(255, 1, 1, 0)");
+	browse.style("color", "rgba(255, 255, 255, 0)");
+	browse.style("opacity", "0");
+
+
+	/*
+	loadExample = new Button("loadExample", width*850/1080, 60, "Load Example", function(){loadTree(ex[0], true)})
+	loadExample2 = new Button("loadExample2", width*850/1080, 80, "Load Example 2", function(){loadTree(ex2[0], true)})
+	nodes["loadExample"] = loadExample
+	nodes["loadExample2"] = loadExample2
+	*/	
+
+
+	route = [];
+	
 	
 	// Properties of nodes that should be saved
 	toCopy = {
@@ -95,21 +113,29 @@ function setup() {
 	
 	
 	// All of the GUI to replace keypresses
-	loc = createElement('p');
-	loc.position(10, 10);
-	mainGUI = new dat.GUI({
-		autoPlace: true,
-		width: 280,
-		height: 250
-	});
-	let flipped =  {}
+	sel = createSelect();
+	sel.position(90, 18)
+	sel.changed(updateMode)
+	flipped =  {}
 	for(var key in modes){
-    flipped[modes[key]] = key;
-  }
-	mainGUI.add(this, 'mode', flipped).listen();
+		sel.option(modes[key])
+    	flipped[modes[key]] = key;
+	}
+	sel.style("font-family", "Georgia");
+	sel.style("font-size", 18+"px");
+	sel.style("background-color", "rgba(255, 1, 1, 0)");
+	sel.style("color", "rgba(255, 255, 255)");
+	sel.style("border: none")	
+	sel.style("-webkit-appearance: none");
+	sel.style("-moz-appearance: none");
+	sel.style("box-shadow: inset 20px 20px rgba(255, 1, 1, 0)")
+	sel.selected(modes[1])
+	updateMode();
+
+	//mainGUI.add(this, 'mode', flipped).listen();
 	//mainGUI.add(this, 'Calculate');
 	//mainGUI.add(this, 'SaveOutput');
-	loc.child(mainGUI.domElement)
+	//loc.child(mainGUI.domElement)
 	loc2 = createElement('p');
 	loc2.position(width*850/1080, 100);
 	//print(img)
@@ -117,6 +143,10 @@ function setup() {
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
+	chooseFile.x = width*880/1080
+	browse.position(chooseFile.x-chooseFile.width/2, chooseFile.y-chooseFile.height/2)
+	loadExample.x = width*880/1080
+	loadExample2.x = width*880/1080
   }
 
 function draw() {
@@ -185,6 +215,7 @@ function draw() {
 	// filter(INVERT)
 	
 	if(help) {
+		for(button of selectAll('button')) {button.hide()}
 		bevRect(width/2, height/2, width*3/4, height*4/5, cur)
 		textAlign(LEFT)
 		textSize(12*width/1920)
@@ -194,5 +225,7 @@ function draw() {
 		text(notes, width/2,height*1/6, width*3/4-50, height*3/4)
 		text(notes2, width*5/6,height*1/6, width*3/4-50, height*3/4)
 		textAlign(CENTER)
+	} else {
+		for(button of selectAll('button')) {button.show()}
 	}
 }
