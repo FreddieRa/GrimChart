@@ -4,6 +4,10 @@ function keyPressed() {
 	if (Object.keys(modes).includes(key) && !intersect(width*850/1080, 40, 250, h)) {
 		mode = int(key)
 		updateMode(modes[mode]);
+		if (gui) {
+			gui.domElement.parentNode.removeChild(gui.domElement)
+			gui = false
+		}
 		from = -1;
 		to = -1;
 	}
