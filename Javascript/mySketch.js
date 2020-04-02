@@ -39,7 +39,6 @@ function setup() {
 	
 	}
 	addButtons();
-	chooseFile = nodes["Choose File"]
 	
 	//chooseFile = new Button("chooseFile", width*880/1080, 40, "Choose File", function(){})
 	//chooseFile.calcSize()
@@ -137,7 +136,6 @@ function setup() {
 	//mainGUI.add(this, 'SaveOutput');
 	//loc.child(mainGUI.domElement)
 	loc2 = createElement('p');
-	loc2.position(width*920/1080, 130);
 	//print(img)
 }
 

@@ -196,6 +196,7 @@ function addButtons() {
 			buttony += temp.height + 10
 		}
 	}
+	chooseFile = nodes["Choose File"]
 }
 
 function updateMode(val) {
