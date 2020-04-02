@@ -177,26 +177,51 @@ function helpToggle() {
 }
 
 function addButtons() {
-	let x = 20 
-	let y = 100
-	let bid = -2
-	for (let [key, value] of Object.entries(buttons)) {
-		let temp = new Button(bid, 0, 0, key, value)
-		temp.calcSize();
-		temp.x = x + temp.width/2
-		temp.y = y
-		nodes[bid] = temp
-		y += temp.height + 10
-		bid -= 1
+	buttonx = 20 
+	button2x = width-20
+	let all = {}
+	all[buttonx] = buttons
+	all[button2x] = buttons2
+
+	for (let [bx, b] of Object.entries(all)) {
+		buttony = 30
+		for (let [key, value] of Object.entries(b)) {
+			print(key)
+			let temp = new Button(key, 0, 0, key, value)
+			temp.calcSize();
+			print(bx)
+			temp.x = int(bx) + int(temp.width/2)*(bx == buttonx ? 1 : -1)
+			temp.y = buttony
+			nodes[key] = temp
+			buttony += temp.height + 10
+		}
 	}
-	print("done")
 }
 
-function mySelectEvent() {
-	let item = sel.value();
-	mode = flipped[item]
+function updateMode(val) {
+	let item = val	
+	if(val in flipped) {
+		sel.selected(val);
+		sel.value(val);
+		print(sel.value())
+	} else {
+		item = sel.selected();	
+		print(sel.selected())
+	}
+	mode = int(flipped[item])
+	let w = Math.ceil((textWidth(item) + 15)/textWidth(" "))
+	nodes["Mode"].name = "Mode:" + " ".repeat(w)
+	nodes["Mode"].calcSize();
+	nodes["Mode"].x = buttonx + nodes["Mode"].width/2
 	//sel.style('color', '#ff0000');
 }
+
+function triggerFileInput() {
+
+	
+}
+
+
 
 function showSelect() {
 	// sel.elt.style.color = sel.style('color', '#ffffff');

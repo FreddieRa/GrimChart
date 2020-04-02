@@ -79,19 +79,11 @@ hr {
 	border: 0;
 }
 
-select{
-    margin:40px;
-    background: rgba(0,0,0,0.3);
-    color:#fff;
-    text-shadow:0 1px 0 rgba(0,0,0,0.4);
+select:focus{
+    border-color: gray;
+    outline:none;
 }
 
-select option {
-    margin: 40px;
-    background: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
-}
 
 .button-container {
 	width: 100%;
