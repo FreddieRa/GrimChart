@@ -61,5 +61,4 @@ function loadTree(file, isText = false) {
 	addButtons();
 	nodes["chooseFile"] = chooseFile
 	updateMode();
-	print("YES")
 }

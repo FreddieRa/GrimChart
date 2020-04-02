@@ -154,7 +154,6 @@ function mousePressed() {
 						
 						// let name = gui.add(node, 'name').listen();
 						for (let key of toCopy[node.type]) {
-							print(key)
 							switch (key) {
 								case "number": 
 								case "target":
@@ -201,8 +200,9 @@ function mousePressed() {
 				{
 					if (hovered != -1) {
 						let tempId = hovered;
+						print(tempId)
 						for (let node of Object.values(nodes)) {
-							if (node.id != tempId) {
+							if (node.type != "BUTTON" && node.id != tempId) {
 								delete node.connections[tempId]
 								delete outputs[node.id][tempId]
 								delete inputs[node.id][tempId]

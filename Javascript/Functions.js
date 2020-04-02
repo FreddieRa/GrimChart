@@ -186,10 +186,8 @@ function addButtons() {
 	for (let [bx, b] of Object.entries(all)) {
 		buttony = 30
 		for (let [key, value] of Object.entries(b)) {
-			print(key)
 			let temp = new Button(key, 0, 0, key, value)
 			temp.calcSize();
-			print(bx)
 			temp.x = int(bx) + int(temp.width/2)*(bx == buttonx ? 1 : -1)
 			temp.y = buttony
 			nodes[key] = temp
@@ -204,10 +202,8 @@ function updateMode(val) {
 	if(val in flipped) {
 		sel.selected(val);
 		sel.value(val);
-		print(sel.value())
 	} else {
 		item = sel.selected();	
-		print(sel.selected())
 	}
 	mode = int(flipped[item])
 	let w = Math.ceil((textWidth(item) + 15)/textWidth(" "))
