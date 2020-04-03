@@ -35,30 +35,20 @@ function setup() {
 	buttons2 = {
 		"Load Example 1": function(){loadTree(ex[0], true)}, 
 		"Load Example 2": function(){loadTree(ex2[0], true)},
-		"Choose File": function(){}
-	
+		"Choose File": function(){},
+		"Save Tree": saveTree,
+		"Save Image": SaveOutput
 	}
 	addButtons();
 	
-	//chooseFile = new Button("chooseFile", width*880/1080, 40, "Choose File", function(){})
-	//chooseFile.calcSize()
-	//nodes["chooseFile"] = chooseFile
 
-		// File browser button
+	// File browser button
 	browse = createFileInput(loadTree)
 	browse.position(chooseFile.x-chooseFile.width/2, chooseFile.y-chooseFile.height/2)
 	browse.size(chooseFile.width, chooseFile.height)
 	browse.style("background-color", "rgba(255, 1, 1, 0)");
 	browse.style("color", "rgba(255, 255, 255, 0)");
 	browse.style("opacity", "0");
-
-
-	/*
-	loadExample = new Button("loadExample", width*850/1080, 60, "Load Example", function(){loadTree(ex[0], true)})
-	loadExample2 = new Button("loadExample2", width*850/1080, 80, "Load Example 2", function(){loadTree(ex2[0], true)})
-	nodes["loadExample"] = loadExample
-	nodes["loadExample2"] = loadExample2
-	*/	
 
 
 	route = [];
@@ -82,6 +72,7 @@ function setup() {
 	// There is no GUI to begin with
 	gui = false;
 	help = false;
+	saving = false;
 
 	// The current "from" and "to" IDs for adding a connection
 	from = -1;
@@ -131,10 +122,6 @@ function setup() {
 	sel.selected(modes[1])
 	updateMode();
 
-	//mainGUI.add(this, 'mode', flipped).listen();
-	//mainGUI.add(this, 'Calculate');
-	//mainGUI.add(this, 'SaveOutput');
-	//loc.child(mainGUI.domElement)
 	loc2 = createElement('p');
 	//print(img)
 }
@@ -195,7 +182,9 @@ function draw() {
 			val.hover = true;
 		}
 		val.update();
-		val.show()
+		if(val.type != "BUTTON" || saving != true) {
+			val.show()
+		}
 	} // Draw nodes
 	
 	

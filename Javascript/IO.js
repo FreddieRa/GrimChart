@@ -25,7 +25,7 @@ function keyPressed() {
 	// Exporting Image
 	//*
 	if (key == "`") {
-		saveOutput1();
+		saveOutput();
 	} //*/
 
 	// Snapping to grid
@@ -144,7 +144,7 @@ function mousePressed() {
 
 			case 5: // Edit node
 				{
-					if (hovered != -1) {
+					if (hovered != -1 && nodes[hovered].type != "RESULT") {
 						if (gui) {
 							gui.domElement.parentNode.removeChild(gui.domElement)
 							if(gui.node == nodes[hovered].id){gui = false; return false}
@@ -159,6 +159,10 @@ function mousePressed() {
 						// let name = gui.add(node, 'name').listen();
 						for (let key of toCopy[node.type]) {
 							switch (key) {
+								case "name": 
+									if(node.type == "ROLL") {
+										gui.add(node, key)
+									} break;
 								case "number": 
 								case "target":
 									gui.add(node, key).min(1).step(1);

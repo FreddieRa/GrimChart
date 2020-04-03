@@ -169,7 +169,10 @@ function calculate() {
 function SaveOutput() {
 	let name = prompt("Filename:")
 	name = name.replace(/\s/g, "_")
+	saving = true;
+	redraw()
 	saveCanvas(name, "jpg")
+	saving = false;
 }
 
 function helpToggle() {
