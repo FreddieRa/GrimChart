@@ -185,9 +185,11 @@ function mousePressed() {
 							}
 						}
 					} else if (gui) {
-						gui.domElement.parentNode.removeChild(gui.domElement)
-						gui = false; 
-						return false
+						if(!intersect(loc2.x, loc2.y, gui.width, 150)) {
+							gui.domElement.parentNode.removeChild(gui.domElement)
+							gui = false; 
+							return false
+						}
 					}
 					
 					break;

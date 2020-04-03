@@ -241,7 +241,7 @@ th {
   }
   
   select {
-    background: #fff !important;
+    background: #000 !important;
   }
   .navbar {
     display: none;
