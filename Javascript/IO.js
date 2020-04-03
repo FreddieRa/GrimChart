@@ -11,6 +11,10 @@ function keyPressed() {
 		from = -1;
 		to = -1;
 	}
+
+	if ([UP_ARROW, DOWN_ARROW, LEFT_ARROW, RIGHT_ARROW].includes(keyCode)) {
+		return false
+	}
 	
 	if (key == "h") {
 		helpToggle()

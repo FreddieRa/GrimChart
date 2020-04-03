@@ -175,6 +175,12 @@ function SaveOutput() {
 	saving = false;
 }
 
+function mouseWheel(event) {
+	return false
+}
+
+window.onscroll = function(){window.scrollTo(0, 0);}
+
 function helpToggle() {
 	window.open("https://github.com/FreddieRa/GrimChart/wiki", "_blank");
 }

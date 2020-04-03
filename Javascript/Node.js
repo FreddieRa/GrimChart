@@ -38,7 +38,8 @@ function Node(id, x, y, name) {
 
 	this.calcSize = function() {
 		// Determine size of box to contain text
-		textSize(this.textSize * scaleFactor)
+		let sf = this.type == "BUTTON" ? 1 : scaleFactor
+		textSize(this.textSize * sf)
 		this.width = (textWidth(this.getString()) + 15)
 		this.height = (textAscent() + 15)
 	}
@@ -46,13 +47,15 @@ function Node(id, x, y, name) {
 	this.update = function() {
 		if (mode == 4) {
 			// Scale point toward or away from mouse
-			if (keyIsDown(UP_ARROW)) {
-				this.x -= (mouseX - this.x) * 0.01;
-				this.y -= (mouseX - this.y) * 0.01;
-			}
-			if (keyIsDown(DOWN_ARROW)) {
-				this.x += (mouseX - this.x) * 0.01;
-				this.y += (mouseY - this.y) * 0.01;
+			if (this.type != "BUTTON") {
+				if (keyIsDown(UP_ARROW)) {
+					this.x -= (width/2 - this.x) * 0.01;
+					this.y -= (height/2 - this.y) * 0.01;
+				}
+				if (keyIsDown(DOWN_ARROW)) {
+					this.x += (mouseX - this.x) * 0.01;
+					this.y += (mouseY - this.y) * 0.01;
+				}
 			}
 		}
 		
@@ -98,7 +101,8 @@ function Node(id, x, y, name) {
 			} // Draw Rect
 
 			if (this.average && unchanged) {
-				textSize(this.textSize * (7 / 9) * scaleFactor)
+				let sf = this.type == "BUTTON" ? 1 : scaleFactor
+				textSize(this.textSize * (7 / 9) * sf)
 				fill(this.costColour)
 				noStroke()
 				if(this.type == "DAMAGE"){
@@ -109,7 +113,8 @@ function Node(id, x, y, name) {
 			} // Draw cost
 
 			{
-				textSize(this.textSize * scaleFactor)
+				let sf = this.type == "BUTTON" ? 1 : scaleFactor
+				textSize(this.textSize * sf)
 				//fill(this.colour)
 					fill(255)
 				noStroke()
