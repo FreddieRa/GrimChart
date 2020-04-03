@@ -2,7 +2,9 @@ function saveTree() {
 	let name = ""
 	let newNodes = {}
 	for (let [key, value] of Object.entries(nodes)) {
-		newNodes[key] = simplifyNode(value)
+		if (value.type != "BUTTON") {
+			newNodes[key] = simplifyNode(value)
+		}
 	}
 	let string = `[${JSON.stringify(newNodes)}, ${JSON.stringify(inputs)}, ${JSON.stringify(outputs)}, ${str(id)}, ${scaleFactor}, ${startID}]`
 	let json = {"nodes": newNodes, "inputs": inputs, "outputs": outputs, "id": id, "scaleFactor": scaleFactor, "startID": startID}
