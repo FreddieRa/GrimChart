@@ -1,7 +1,7 @@
 function keyPressed() {
 	selected = []
 	let h = gui ? height * 10 : 250
-	if (Object.keys(modes).includes(key) && !intersect(width*850/1080, 40, 250, h)) {
+	if (Object.keys(modes).includes(key) && !gui) {
 		mode = int(key)
 		updateMode(modes[mode]);
 		if (gui) {
@@ -180,6 +180,10 @@ function mousePressed() {
 									gui.add(node, key)
 							}
 						}
+					} else if (gui) {
+						gui.domElement.parentNode.removeChild(gui.domElement)
+						gui = false; 
+						return false
 					}
 					
 					break;
