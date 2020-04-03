@@ -176,7 +176,7 @@ function SaveOutput() {
 }
 
 function helpToggle() {
-	help = !help
+	window.open("https://github.com/FreddieRa/GrimChart/wiki", "_blank");
 }
 
 function addButtons() {
