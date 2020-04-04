@@ -146,6 +146,7 @@
 
 .dg .property-name {
     font-family: "Georgia";
+    text-transform: capitalize;
     cursor: default;
     float: left;
     clear: left;
