@@ -33,26 +33,10 @@ function loadTree(file, isText = false) {
 	startID = loaded[5];
 
 	nodes = {}
-	for (let [key, val] of Object.entries(loaded[0])) {
-		let temp = null
-		let keys = []
-		for (let item of [...toCopy.NODE, ...toCopy[val.type]]) {
-			keys.push(val[item])
-		}
-		switch (val.type) {
-			case "ROLL":
-				temp = new Roll(...keys); break;
-			case "DAMAGE":
-				temp = new Damage(...keys); break;
-			case "TOTAL":
-				temp = new Total(...keys); break;
-			case "EACH":
-				temp = new Each(...keys); break;
-			case "RESULT":
-				temp = new Result(...keys); break;
-		}
-		if(val.id == startID){temp.start = true}
+	for (let val of Object.values(loaded[0])) {
+		let temp = createNode(val)
 		nodes[val.id] = temp
+		if(val.id == startID){temp.start = true}
 	}
 	
 	inputs = loaded[1];
@@ -63,4 +47,25 @@ function loadTree(file, isText = false) {
 	addButtons();
 	nodes["chooseFile"] = chooseFile
 	updateMode();
+}
+
+function createNode(val) {
+	let temp = null
+	let keys = []
+	for (let item of [...toCopy.NODE, ...toCopy[val.type]]) {
+		keys.push(val[item])
+	}
+	switch (val.type) {
+		case "ROLL":
+			temp = new Roll(...keys); break;
+		case "DAMAGE":
+			temp = new Damage(...keys); break;
+		case "TOTAL":
+			temp = new Total(...keys); break;
+		case "EACH":
+			temp = new Each(...keys); break;
+		case "RESULT":
+			temp = new Result(...keys); break;
+	}
+	return temp
 }

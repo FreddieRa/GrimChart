@@ -234,16 +234,19 @@ function mousePressed() {
 					break;
 				}
 
-			case 9: // Set Start
+			case 9: // Duplicate node
 				{
 					if (hovered != -1) {
-						let tempId = hovered;
-						for (let node of Object.values(nodes)) {
-							node.start = false
-						}
-						nodes[tempId].start = true
-						startID = tempId
-						unchanged = false;
+
+						let tempNode = nodes[hovered];
+						let simplified = simplifyNode(tempNode);
+						let temp = createNode(simplified);	
+						temp.id = id
+						nodes[id] = temp
+						inputs[id] = {}
+						outputs[id] = {}
+
+						id += 1
 					}
 					break;
 				}
@@ -282,6 +285,12 @@ function mouseDragged() {
 						}
 					}
 				}
+			}
+		case 9:
+			if (hovered != -1 && nodes[hovered].id == id-1) {
+				hoveredNode = nodes[hovered]
+				hoveredNode.x = mouseX;
+				hoveredNode.y = mouseY;
 			}
 	}
 }
