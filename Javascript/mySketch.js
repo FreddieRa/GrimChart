@@ -99,7 +99,7 @@ function setup() {
 		5: "Edit node",
 		6: "Remove connection",
 		7: "Remove node",
-		9: "Duplicate node"
+		8: "Duplicate node"
 	}
 	
 	

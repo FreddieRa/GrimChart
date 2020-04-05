@@ -33,7 +33,7 @@ function keyPressed() {
 	} //*/
 
 	// Snapping to grid
-	if (key == "8") {
+	if (key == "9") {
 		for (let [key, value] of Object.entries(nodes)) {
 			// The value here determines how coarse the grid is
 			if(value.type != "BUTTON") {
@@ -234,7 +234,7 @@ function mousePressed() {
 					break;
 				}
 
-			case 9: // Duplicate node
+			case 8: // Duplicate node
 				{
 					if (hovered != -1) {
 
