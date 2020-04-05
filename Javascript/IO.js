@@ -293,4 +293,5 @@ function mouseDragged() {
 				hoveredNode.y = mouseY;
 			}
 	}
+	return false
 }
