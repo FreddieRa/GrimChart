@@ -286,7 +286,7 @@ function mouseDragged() {
 					}
 				}
 			}
-		case 9:
+		case 8:
 			if (hovered != -1 && nodes[hovered].id == id-1) {
 				hoveredNode = nodes[hovered]
 				hoveredNode.x = mouseX;
