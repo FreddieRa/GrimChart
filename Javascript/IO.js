@@ -62,6 +62,10 @@ function keyPressed() {
 	return true
 }
 
+function touchStarted() {
+	mousePressed()
+	mouseReleased()
+}
 
 
 function mousePressed() {
