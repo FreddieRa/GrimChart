@@ -162,6 +162,16 @@ function draw() {
 	if (keyIsDown(219)) { cur -= 0.5; cur = max(cur, 0) }
 	if (keyIsDown(221)) { cur += 0.5; cur = min(cur, 10) }
 
+	if (from != -1 && mouseIsPressed) {
+		let f = createVector(nodes[from].x, nodes[from].y)
+		let t = createVector(mouseX, mouseY)
+		strokeWeight(scaleFactor)
+		let col = mode == 2 ? color(20, 200, 20) : color(200, 20, 20)
+		stroke(col)
+		fill(0)
+		drawArrow(f, t)
+	}
+
 
 	{
 		fill(0)
