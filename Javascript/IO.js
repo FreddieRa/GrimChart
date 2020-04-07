@@ -122,7 +122,7 @@ function mousePressed() {
 
 			case 2: // Add true connection
 				{
-					if (hovered != -1 && !protected.includes[nodes[hovered].id]) {
+					if (hovered != -1 && !protected.includes(nodes[hovered].id)) {
 						if (from == -1) {
 							from = hovered
 						} else {
@@ -142,7 +142,7 @@ function mousePressed() {
 
 			case 3: // Add false connection
 				{
-					if (hovered != -1 && !protected.includes[nodes[hovered].id]) {
+					if (hovered != -1 && !protected.includes(nodes[hovered].id)) {
 						if (from == -1) {
 							from = hovered
 						} else {
@@ -169,7 +169,7 @@ function mousePressed() {
 
 			case 5: // Edit node
 				{
-					if(!protected.includes[nodes[hovered].id]) {
+					if(!protected.includes(nodes[hovered].id)) {
 						if (hovered != -1 && nodes[hovered].type != "RESULT") {
 							if (gui) {
 								gui.domElement.parentNode.removeChild(gui.domElement)
@@ -239,7 +239,7 @@ function mousePressed() {
 
 			case 7: // Delete Node
 				{
-					if (hovered != -1 && !protected.includes[nodes[hovered].id]) {
+					if (hovered != -1 && !protected.includes(nodes[hovered].id)) {
 						let tempId = hovered;
 						print(tempId)
 						for (let node of Object.values(nodes)) {
