@@ -17,6 +17,7 @@ function Node(id, x, y, name) {
 	this.textSize = 18;
 	this.hover = false;
 	this.sw = 1;
+	this.whiteShadow = true;
 	this.colour = "#CCCCCC"
 	this.costColour = "#000000"
 	this.colours = {
@@ -47,7 +48,7 @@ function Node(id, x, y, name) {
 	this.update = function() {
 		if (mode == 4) {
 			// Scale point toward or away from mouse
-			if (this.type != "BUTTON") {
+			if (!protected.includes(this.id)) {
 				if (keyIsDown(UP_ARROW)) {
 					this.x -= (width/2 - this.x) * 0.01;
 					this.y -= (height/2 - this.y) * 0.01;
@@ -58,7 +59,7 @@ function Node(id, x, y, name) {
 				}
 			}
 		}
-		
+
 		this.calcSize();
 
 		if (this.hover || route.includes(str(this.id)) || selected.includes(str(this.id))) {
@@ -96,7 +97,7 @@ function Node(id, x, y, name) {
 				strokeWeight(this.sw*2)
 				fill(50)
 				// rect(x, y, this.width, this.height, cur, cur, cur, cur)
-				bevRect(x, y, this.width, this.height, cur, this.colour)
+				bevRect(x, y, this.width, this.height, cur, this.colour, this.whiteShadow)
 				
 			} // Draw Rect
 

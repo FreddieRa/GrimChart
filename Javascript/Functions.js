@@ -108,13 +108,13 @@ function drawArrow(base, end, str) {
 	pop();
 }
 
-function bevRect(x, y, wi, he, be, highlight = false) {
+function bevRect(x, y, wi, he, be, highlight = false, whiteShadow = true) {
 	let w = wi / 2;
 	let h = he / 2;
 	let b = be
 	let col = 0
 	//let ctx = drawingContext
-	for (let i of [1,0,0]) {
+	for (let i of [1, 0, 0]) {
 		w = wi / 2 + i;
 		h = he / 2 + i;
 		b = be + i / 2
@@ -123,7 +123,9 @@ function bevRect(x, y, wi, he, be, highlight = false) {
 
 		if (i == 1) {
 			drawingContext.shadowBlur = 30
-			drawingContext.shadowColor = color(250,239,213)
+			if (whiteShadow) {
+				drawingContext.shadowColor = color(250,239,213)
+			}
 			fill(80)
 		} else {		
 			noFill()
@@ -200,10 +202,31 @@ function addButtons() {
 			temp.x = int(bx) + int(temp.width/2)*(bx == buttonx ? 1 : -1)
 			temp.y = buttony
 			nodes[key] = temp
+			protected.push(key)
 			buttony += temp.height + 10
 		}
 	}
 	chooseFile = nodes["Choose File"]
+}
+
+function addDefaultNodes() {
+	defx = 20
+	defy = buttony + 40
+
+	for (let [key, value] of Object.entries(defaultNodes)) {
+		let defDict = {"id": key, "x": 0, "y": 0, "name": key}
+		let simplified = Object.assign({}, defDict, value)
+		let temp = createNode(simplified);	
+		temp.calcSize();
+		temp.x = defx + int(temp.width/2)
+		temp.y = defy
+		temp.whiteShadow = false
+		nodes[key] = temp
+		protected.push(key)
+		inputs[key] = {}
+		outputs[key] = {}
+		defy += temp.height + 15
+	}
 }
 
 function updateMode(val) {
